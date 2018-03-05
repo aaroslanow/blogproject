@@ -1,9 +1,11 @@
 package com.example.adamstrainingproject.blogproject.models;
 
+import org.apache.tomcat.jni.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 /**
  * Created by Adam on 27.02.2018.
@@ -20,10 +22,14 @@ public class Post {
 
     private String content;
     @DateTimeFormat(pattern="dd/MM/yyyy hh:mm:ss")
-    private Date date;
+    private LocalDate date;
 
     public  Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Author getAuthor() {
@@ -43,17 +49,17 @@ public class Post {
     }
 
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
    public Post() {
 
     }
-    public Post( Author author, String content, Date date) {
+    public Post( Author author, String content, LocalDate date) {
         this.author=author;
         this.content=content;
         this.date=date;

@@ -22,11 +22,19 @@ public class AuthorServiceImpl implements  AuthorService {
     public Author findById(Long id) {
         Optional<Author> author= authorRepository.findById(id);
         if (!author.isPresent()) {
-            throw new RuntimeException("Post Not Found!");
+            throw new RuntimeException("Author Not Found!");
         }
         return author.get();
     }
 
+    @Override
+    public Author findByNickName(String nickName) {
+        Optional<Author> author = authorRepository.findByNickName(nickName);
+        if(!author.isPresent()) {
+            throw new RuntimeException("Author not found");
+        }
+        return author.get();
+    }
 
 
 }

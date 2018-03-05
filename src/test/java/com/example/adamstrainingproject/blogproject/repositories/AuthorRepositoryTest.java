@@ -31,10 +31,10 @@ public class AuthorRepositoryTest {
 
     @Test
     public void findByNickNameTest() throws Exception {
-        authorRepository.save(new Author("mishead"));
-        Optional<Author> author = authorRepository.findByNickName("mishead");
+        authorRepository.save(new Author("Author1"));
+        Optional<Author> author = authorRepository.findByNickName("Author1");
 
-        assertEquals("mishead",author.get().getNickName());
+        assertEquals("Author1",author.get().getNickName());
 
 
     }
