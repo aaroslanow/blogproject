@@ -10,6 +10,46 @@
 </head>
 <body>
 
-<div clas="container-fluid"> </div>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h1 class="panel-title">My Recipes!</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(posts)}">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>Author</th>
+                                <th>Post</th>
+                                <th>View</th>
+                            </tr>
+                            </thead>
+                            <tr th:remove="all">
+                                <td>123</td>
+                                <td>Tasty Goodnees 1</td>
+                                <td><a href="#">View</a></td>
+                            </tr>
+                            <tr th:remove="all">
+                                <td>12333</td>
+                                <td>Tasty Goodnees 2</td>
+                                <td><a href="#">View</a></td>
+                            </tr>
+                            <tr th:each="post : ${posts}">
+                                <!--/*@thymesVar post" type="com.example.adamstrainingproject.blogproject.models.Post;"*/-->
+                                <td th:text="${post.id}">334</td>
+                                <td th:text="${post.content}">Tasty Goodnees 3</td>
+                                <td><a href="#" th:href="@{'/recipe/show/' + ${post.id}}">View</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

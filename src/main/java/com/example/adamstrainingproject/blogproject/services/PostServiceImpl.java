@@ -1,5 +1,6 @@
 package com.example.adamstrainingproject.blogproject.services;
 
+import com.example.adamstrainingproject.blogproject.models.Author;
 import com.example.adamstrainingproject.blogproject.models.Post;
 import com.example.adamstrainingproject.blogproject.repositories.PostRepository;
 import org.springframework.stereotype.Service;
@@ -30,9 +31,15 @@ public class PostServiceImpl implements  PostService {
     }
 
     @Override
-    public Set<Post> getPosts() {
+    public Set<Post> findAllPosts() {
          Set<Post> postSet = new HashSet<>();
         postRepository.findAll().iterator().forEachRemaining(postSet::add);
         return postSet;
+
+    }
+    @Override
+    public Set<Post> findPostsFromAuthor(Author author) {
+        Set<Post> posts = postRepository.findAllByAuthor(author);
+        return posts;
     }
 }

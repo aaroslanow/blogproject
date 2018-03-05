@@ -11,6 +11,6 @@ import java.util.Set;
  */
 public interface AuthorService {
     Author findById(Long id);
-    Set<Post> findPostsFromAuthor(Author author);
+
 
 }

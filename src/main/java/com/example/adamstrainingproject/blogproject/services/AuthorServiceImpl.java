@@ -1,12 +1,10 @@
 package com.example.adamstrainingproject.blogproject.services;
 
 import com.example.adamstrainingproject.blogproject.models.Author;
-import com.example.adamstrainingproject.blogproject.models.Post;
 import com.example.adamstrainingproject.blogproject.repositories.AuthorRepository;
 import com.example.adamstrainingproject.blogproject.repositories.PostRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
-import java.util.Set;
 
 
 /**
@@ -16,11 +14,9 @@ import java.util.Set;
 public class AuthorServiceImpl implements  AuthorService {
 
     private final AuthorRepository authorRepository;
-    private final PostRepository postRepository;
 
     public AuthorServiceImpl(AuthorRepository authorRepo,PostRepository postRepo ) {
         this.authorRepository=authorRepo;
-        this.postRepository = postRepo;
     }
     @Override
     public Author findById(Long id) {
@@ -31,10 +27,6 @@ public class AuthorServiceImpl implements  AuthorService {
         return author.get();
     }
 
-    @Override
-    public Set<Post> findPostsFromAuthor(Author author) {
-        Set<Post> posts = postRepository.findAllByAuthor(author);
-        return posts;
-    }
+
 
 }

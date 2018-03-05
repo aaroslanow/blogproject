@@ -28,5 +28,24 @@ public class Author {
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
+    public Author(String nickName, Set<Post> posts) {
+        this.nickName=nickName;
+        this.posts=posts;
+    }
+    public Author(String nickName) {
+        this.nickName = nickName;
+    }
+    public Author() {
 
+    }
+
+    public Author addPost(Post post){
+        post.setAuthor(this);
+        this.posts.add(post);
+        return this;
+    }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
 }

@@ -14,7 +14,8 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
     private Author author;
 
     private String content;
@@ -57,4 +58,5 @@ public class Post {
         this.content=content;
         this.date=date;
     }
+
 }

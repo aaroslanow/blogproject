@@ -15,4 +15,5 @@ public interface PostRepository extends CrudRepository<Post,Long> {
     Optional<Post> findById(Long id);
     Set<Post> findAllByAuthor(Author author);
 
+
 }
